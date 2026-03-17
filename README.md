@@ -4,7 +4,7 @@
 
 ### Multi-Language Online Compiler & IDE
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://infinitedev.onrender.com/)
 
 *A sleek, cyberpunk-themed online IDE that lets you write, compile, and execute code in multiple languages — right in your browser.*
 
