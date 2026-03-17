@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfiniteDev – Multi-Language Online Compiler</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+</head>
+<body class="dark-theme">
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">∞</span>
+            <span class="logo-text">Infinite<span>Dev</span></span>
+        </div>
+        <div class="nav-controls">
+            <select id="language-selector">
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="java">Java</option>
+            </select>
+            <button id="theme-toggle" title="Toggle Theme">
+                <svg class="sun-icon" viewBox="0 0 24 24"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 100-2H2a1 1 0 100 2zm18 0h2a1 1 0 100-2h-2a1 1 0 100 2zM11 2v2a1 1 0 100 2V2a1 1 0 00-2 0zm0 18v2a1 1 0 100 2v-2a1 1 0 00-2 0zM5.99 4.58a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 10-1.41 1.41l1.06 1.06a1 1 0 101.41-1.41l-1.06-1.06zm1.06-12.37a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06zm-12.37 12.37a1 1 0 10-1.41-1.41l-1.06 1.06a1 1 0 101.41 1.41l1.06-1.06z"/></svg>
+                <svg class="moon-icon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+            </button>
+            <button id="run-btn" class="primary-btn">Run Code</button>
+        </div>
+    </nav>
+
+    <main class="app-container">
+        <div class="editor-section">
+            <div class="tabs-bar" id="tabs-bar">
+                <div class="tab active" data-id="tab-1">main.py <span class="close-tab">&times;</span></div>
+                <button id="add-tab" title="New File">+</button>
+            </div>
+            <div id="monaco-editor-container"></div>
+            <div class="editor-footer">
+                <div class="editor-stats">
+                    <span id="cursor-pos">Ln 1, Col 1</span>
+                    <span id="runtime-display">Time: 0ms</span>
+                </div>
+                <div class="footer-actions">
+                    <button id="copy-btn">Copy</button>
+                    <button id="download-btn">Download</button>
+                    <button id="clear-btn">Clear</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <div class="input-output-container">
+                <div class="section-header">STDIN (Input)</div>
+                <textarea id="stdin-box" placeholder="Enter program input here..."></textarea>
+                
+                <div class="section-header">STDOUT (Output)</div>
+                <div id="stdout-box" class="terminal-box">
+                    <pre id="output-text"></pre>
+                </div>
+
+                <div class="section-header error-header">ERRORS</div>
+                <div id="error-box" class="terminal-box error">
+                    <pre id="error-text"></pre>
+                </div>
+            </div>
+            
+            <div class="ai-helper-container">
+                <div class="section-header ai-header">AI HELPER</div>
+                <div class="ai-actions">
+                    <button id="ai-explain-code">Explain Code</button>
+                    <button id="ai-explain-error">Explain Error</button>
+                    <button id="ai-suggest-fix">Suggest Fix</button>
+                </div>
+                <div id="ai-response-box" class="ai-box">
+                    <p class="placeholder-text">Ask the AI for help with your code or errors.</p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

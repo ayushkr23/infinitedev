@@ -1,0 +1,11 @@
+{
+  "name": "infinitedev",
+  "version": "3.0.0",
+  "description": "InfiniteDev – Multi-Language Online Compiler",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend-v2 && npm install",
+    "build": "cd frontend-v2 && npm run build",
+    "start": "cd backend && node server.js",
+    "dev": "cd frontend-v2 && npm run dev -- --port 3001"
+  }
+}
