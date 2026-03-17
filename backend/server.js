@@ -183,7 +183,7 @@ function cleanup(files) {
 }
 
 // Catch-all: serve React app for any non-API route
-app.get('*', (req, res) => {
+app.get('/{*path}', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend-v2', 'dist', 'index.html'));
 });
 
