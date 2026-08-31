@@ -123,6 +123,7 @@ function App() {
           
           <div className="flex-1 relative overflow-hidden bg-[#1e1e1e]">
             <CodeEditor 
+              path={activeTab.name}
               content={activeTab.content} 
               language={activeTab.language} 
               theme="dark"

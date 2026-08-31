@@ -1,8 +1,13 @@
 import React from 'react';
 import Editor from '@monaco-editor/react';
 
-const CodeEditor = ({ content, language, theme, onChange }) => {
+const CodeEditor = ({ path, content, language, theme, onChange }) => {
   const handleEditorDidMount = (editor, monaco) => {
+    // Force remeasure when custom web fonts finish loading to fix cursor misalignment
+    document.fonts.ready.then(() => {
+      monaco.editor.remeasureFonts();
+    });
+
     // Register Snippets for Python
     monaco.languages.registerCompletionItemProvider('python', {
       provideCompletionItems: (model, position) => {
@@ -153,6 +158,7 @@ const CodeEditor = ({ content, language, theme, onChange }) => {
   return (
     <div className="absolute inset-0">
       <Editor
+        path={path}
         height="100%"
         language={language}
         theme={theme === 'dark' ? 'vs-dark' : 'light'}
@@ -162,7 +168,7 @@ const CodeEditor = ({ content, language, theme, onChange }) => {
         options={{
           minimap: { enabled: false },
           fontSize: 14,
-          fontFamily: 'JetBrains Mono',
+          fontFamily: '"JetBrains Mono", monospace',
           lineNumbers: 'on',
           roundedSelection: true,
           scrollBeyondLastLine: false,
